@@ -1,8 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import "./App.css";
-import dotenv from "dotenv";
-dotenv.config();
+import Table from "./components/table";
 
 function App() {
   const [firstname, setFirstname] = useState("");
@@ -51,22 +50,7 @@ function App() {
             <button type="submit">Send</button>
           </form>
           <div className="table-container">
-            <table>
-              <thead>
-                <tr>
-                  <th>Firstname</th>
-                  <th>Lastname</th>
-                  <th>Email</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>{firstname}</td>
-                  <td>{lastname}</td>
-                  <td>{email}</td>
-                </tr>
-              </tbody>
-            </table>
+            <Table firstname={firstname} lastname={lastname} email={email} />
           </div>
         </section>
       </div>

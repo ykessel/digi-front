@@ -1,20 +1,21 @@
 import { useState } from "react";
 import axios from "axios";
 import "./App.css";
+import dotenv from "dotenv";
+dotenv.config();
 
 function App() {
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
-  const baseURL = "http://127.0.0.1:5000/users/add";
+  const baseURL = process.env.API_URL || "http://127.0.0.1:5000";
 
   const send = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     let newUser = { firstname, lastname, email };
-
     axios
-      .post(baseURL, newUser)
-      .then((res: any) => console.log("Recived: ", res.data.succes_msg))
+      .post(baseURL + "/users/add", newUser)
+      .then((res: any) => console.log("From the back: ", res.data.succes_msg))
       .catch((err: any) => console.log("Error: ", err));
   };
 

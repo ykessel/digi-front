@@ -8,7 +8,7 @@ function App() {
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
-  const baseURL = process.env.API_URL || "http://127.0.0.1:5000";
+  const baseURL = "https://express-app-m1pk.onrender.com";
 
   const send = (e: { preventDefault: () => void }) => {
     e.preventDefault();
